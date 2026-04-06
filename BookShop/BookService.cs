@@ -11,7 +11,7 @@ namespace BookShop
                 {
                     book.Price *= 0.5M;
                     book.HasDiscount = true;
-                    Console.WriteLine($"{book.Title} - {book.Author} ({book.PublicationYear}) \n");
+                    Console.WriteLine($"{book.Title} - {book.Author} ({book.PublicationYear})");
                 }
             }
         }

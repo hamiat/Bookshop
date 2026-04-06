@@ -18,6 +18,7 @@ namespace BookShop
                         $"***{customer.CompanyName}: Special Reseller discount this month! Half Price on each book!***"
                     );
                     bookService.ApplyHalfPriceToOldBooks(bookList, customer.OrderItems);
+                    Console.WriteLine();
                 }
                 else if (
                     bookList.Any(b =>
