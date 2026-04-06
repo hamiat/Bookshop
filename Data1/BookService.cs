@@ -11,17 +11,19 @@ namespace Data1
                 {
                     book.Price *= 0.5M;
                     book.HasDiscount = true;
-                    Console.WriteLine($"{book.Title} by {book.Author} from {book.PublicationYear}");
+                    Console.WriteLine($"{book.Title} - {book.Author} ({book.PublicationYear})");
                 }
             }
         }
 
-        public void ApplyTwoForOneOffer(List<Book> books, List<string> orderItems, List<Country> countries)
+        public void ApplyTwoForOneOffer(
+            List<Book> books,
+            List<string> orderItems,
+            List<Country> countries
+        )
         {
             var filteredBooks = books.Where(b => orderItems.Contains(b.Title)).ToList();
-            var grouped = filteredBooks
-            .Where(b => !b.HasDiscount)
-            .GroupBy(b => b.CountryId);
+            var grouped = filteredBooks.Where(b => !b.HasDiscount).GroupBy(b => b.CountryId);
 
             foreach (var group in grouped)
             {
@@ -32,8 +34,9 @@ namespace Data1
                     var countryName = countries.Find(c => c.Id == group.First().CountryId)?.Name;
                     var finalPrice = Math.Round((cheapest.Price + mostExpensive.Price) / 2, 2);
 
-                    Console.WriteLine($"***Celebrating your country's authors this month!***");
-                    Console.WriteLine($"50% off 2 books ({cheapest.Title} and {mostExpensive.Title}) from {countryName}: {finalPrice} euros.");
+                    Console.WriteLine(
+                        $"50% off 2 books ({cheapest.Title} and {mostExpensive.Title}) from {countryName}: {finalPrice} euros."
+                    );
                 }
             }
         }
