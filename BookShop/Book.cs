@@ -11,7 +11,6 @@ namespace BookShop
         public int PublicationYear { get; set; }
         public int ISBN { get; set; }
         public int CountryId { get; set; }
-
         public decimal Price { get; set; }
         public bool HasDiscount { get; set; }
     }
