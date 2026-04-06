@@ -11,7 +11,7 @@ namespace BookShop
                 {
                     book.Price *= 0.5M;
                     book.HasDiscount = true;
-                    Console.WriteLine($"{book.Title} - {book.Author} ({book.PublicationYear})");
+                    Console.WriteLine($"{book.Title} - {book.Author} ({book.PublicationYear}) \n");
                 }
             }
         }
@@ -35,7 +35,7 @@ namespace BookShop
                     var finalPrice = Math.Round((cheapest.Price + mostExpensive.Price) / 2, 2);
 
                     Console.WriteLine(
-                        $"50% off 2 books ({cheapest.Title} and {mostExpensive.Title}) from {countryName}: {finalPrice} euros."
+                        $"50% off 2 books ({cheapest.Title} and {mostExpensive.Title}) from {countryName}: {finalPrice} euros. \n"
                     );
                 }
             }

@@ -15,7 +15,7 @@ namespace BookShop
                 if (customer.Reseller)
                 {
                     Console.WriteLine(
-                        $"***{customer.CompanyName}: Special Reseller discount this month! Half Price on each book!*** \n"
+                        $"***{customer.CompanyName}: Special Reseller discount this month! Half Price on each book!***"
                     );
                     bookService.ApplyHalfPriceToOldBooks(bookList, customer.OrderItems);
                 }
@@ -26,7 +26,7 @@ namespace BookShop
                 )
                 {
                     Console.WriteLine(
-                        $"***{customer.CompanyName}: Celebrating your country's authors this month!*** \n"
+                        $"***{customer.CompanyName}: Celebrating your country's authors this month!***"
                     );
                     bookService.ApplyTwoForOneOffer(bookList, customer.OrderItems, countries);
                 }
