@@ -14,11 +14,20 @@ namespace Data1
             {
                 if (customer.Reseller)
                 {
-                    Console.WriteLine($"***Special Reseller discount this month! Half Price on each book***");
+                    Console.WriteLine(
+                        $"***{customer.CompanyName}: Special Reseller discount this month! Half Price on each book!*** \n"
+                    );
                     bookService.ApplyHalfPriceToOldBooks(bookList, customer.OrderItems);
                 }
-                else if (bookList.Any(b => b.CountryId == customer.CountryId && customer.OrderItems.Contains(b.Title)))
+                else if (
+                    bookList.Any(b =>
+                        b.CountryId == customer.CountryId && customer.OrderItems.Contains(b.Title)
+                    )
+                )
                 {
+                    Console.WriteLine(
+                        $"***{customer.CompanyName}: Celebrating your country's authors this month!*** \n"
+                    );
                     bookService.ApplyTwoForOneOffer(bookList, customer.OrderItems, countries);
                 }
             }
